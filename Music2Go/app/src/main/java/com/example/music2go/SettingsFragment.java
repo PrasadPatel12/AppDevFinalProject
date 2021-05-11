@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,8 +23,14 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,10 +38,11 @@ import java.util.List;
 public class SettingsFragment extends Fragment {
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
-    List<ModelClass> userList;
+    List<ModelClass> userList = new ArrayList<>();;
     Adapter adapter;
     private FirebaseAuth firebaseAuth;
-
+    String s2 = "";
+    String s3 = "";
     public SettingsFragment() {
         // Required empty public constructor
     }
@@ -43,20 +51,54 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_settings, container, false);
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Users");
         SharedPreferences sharedpreferences = getContext().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         SharedPreferences sh = getContext().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         String s1 = sh.getString("image", "");
-        String s2 = sh.getString("name", "");
-        String s3 = sh.getString("username", "");
+//        String s2 = sh.getString("name", "");
+//        String s3 = sh.getString("username", "");
         String s4 = sh.getString("email", "");
-        initData(s2, s3, s4);
-        recyclerView = v.findViewById(R.id.recyclerView);
-        layoutManager = new LinearLayoutManager(v.getContext());
-        layoutManager.setOrientation(RecyclerView.VERTICAL);
-        recyclerView.setLayoutManager(layoutManager);
-        adapter = new Adapter(userList);
-        recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // While the list has users iterate through them
+                for (DataSnapshot databaseUser : snapshot.getChildren()) {
+                    // Fetching data and storing it into String variables
+                    System.out.println("TEST = " + databaseUser.child("email").getValue().toString());
+                    if (databaseUser.child("email").getValue().toString().equals(s4)) {
+                        s2 = databaseUser.child("fullname").getValue().toString();
+                        s3 = databaseUser.child("username").getValue().toString();
+                        System.out.println("MATCH YES");
+                        userList.add(new ModelClass("Full Name", s2, "_______________________________________________"));
+                        userList.add(new ModelClass("Username", s3, "_______________________________________________"));
+                        userList.add(new ModelClass("Email", s4, "_______________________________________________"));
+                        userList.add(new ModelClass("Email", s4, "_______________________________________________"));
+                        recyclerView = v.findViewById(R.id.recyclerView);
+                        layoutManager = new LinearLayoutManager(v.getContext());
+                        layoutManager.setOrientation(RecyclerView.VERTICAL);
+                        recyclerView.setLayoutManager(layoutManager);
+                        adapter = new Adapter(userList);
+                        recyclerView.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getContext(), "An error occurred", Toast.LENGTH_LONG).show();
+            }
+        });
+//        initData(s2, s3, s4);
+//        recyclerView = v.findViewById(R.id.recyclerView);
+//        layoutManager = new LinearLayoutManager(v.getContext());
+//        layoutManager.setOrientation(RecyclerView.VERTICAL);
+//        recyclerView.setLayoutManager(layoutManager);
+//        adapter = new Adapter(userList);
+//        recyclerView.setAdapter(adapter);
+//        adapter.notifyDataSetChanged();
         firebaseAuth = FirebaseAuth.getInstance();
         Button signout = v.findViewById(R.id.button4);
         Button plus = v.findViewById(R.id.button);
@@ -140,16 +182,16 @@ public class SettingsFragment extends Fragment {
         return v;
     }
 
-    private void initData(String name, String username, String email) {
-        userList = new ArrayList<>();
-        userList.add(new ModelClass("Full Name", name, "_______________________________________________"));
+//    private void initData(String name, String username, String email) {
+//        userList = new ArrayList<>();
+//        userList.add(new ModelClass("Full Name", name, "_______________________________________________"));
+//
+//        userList.add(new ModelClass("Username", username, "_______________________________________________"));
+//
+//        userList.add(new ModelClass("Email", email, "_______________________________________________"));
 
-        userList.add(new ModelClass("Username", username, "_______________________________________________"));
-
-        userList.add(new ModelClass("Email", email, "_______________________________________________"));
-
-        userList.add(new ModelClass("Email", email, "_______________________________________________"));
-    }
+//        userList.add(new ModelClass("Email", email, "_______________________________________________"));
+//    }
 
 //    private void initRecyclerView() {
 //        recyclerView = getView().findViewById(R.id.recyclerView);
