@@ -24,4 +24,9 @@
         android:name="com.example.music2go.MyLibraryFragment"
         android:label="fragment_my_library"
         tools:layout="@layout/fragment_my_library" />
+    <fragment
+        android:id="@+id/chatRoomFragment"
+        android:name="com.example.music2go.ChatRoomFragment"
+        android:label="fragment_chat_room"
+        tools:layout="@layout/fragment_chat_room" />
 </navigation>
