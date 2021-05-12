@@ -68,11 +68,14 @@ public class SettingsFragment extends Fragment {
                     System.out.println("TEST = " + databaseUser.child("email").getValue().toString());
                     if (databaseUser.child("email").getValue().toString().equals(s4)) {
                         s2 = databaseUser.child("fullname").getValue().toString();
+                        String[] parts = s2.split(" ");
+                        String fname = parts[0];
+                        String lname = parts[1];
                         s3 = databaseUser.child("username").getValue().toString();
                         System.out.println("MATCH YES");
-                        userList.add(new ModelClass("Full Name", s2, "_______________________________________________"));
+                        userList.add(new ModelClass("First Name", fname, "_______________________________________________"));
+                        userList.add(new ModelClass("Last Name", lname, "_______________________________________________"));
                         userList.add(new ModelClass("Username", s3, "_______________________________________________"));
-                        userList.add(new ModelClass("Email", s4, "_______________________________________________"));
                         userList.add(new ModelClass("Email", s4, "_______________________________________________"));
                         recyclerView = v.findViewById(R.id.recyclerView);
                         layoutManager = new LinearLayoutManager(v.getContext());
