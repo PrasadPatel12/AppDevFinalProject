@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/myLibraryFragment">
+    app:startDestination="@id/uploadFragment">
     <fragment
         android:id="@+id/currentlyPlayingFragment"
         android:name="com.example.music2go.CurrentlyPlayingFragment"
@@ -23,10 +23,10 @@
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
-        android:id="@+id/myLibraryFragment"
-        android:name="com.example.music2go.MyLibraryFragment"
+        android:id="@+id/uploadFragment"
+        android:name="com.example.music2go.UploadFragment"
         android:label="fragment_my_library"
-        tools:layout="@layout/fragment_my_library" />
+        tools:layout="@layout/fragment_upload" />
     <fragment
         android:id="@+id/chatRoomFragment"
         android:name="com.example.music2go.ChatRoomFragment"

@@ -40,15 +40,17 @@
             android:layout_toLeftOf="@+id/sendMessageButton"
             android:layout_weight="0.72"
             android:ems="10"
+            android:hint="Enter a Message"
             android:maxHeight="80dp" />
 
         <Button
             android:id="@+id/sendBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:text="Send" />
+            android:layout_alignParentBottom="true"
+            android:text="Send"
+            app:backgroundTint="#4CAF50" />
     </LinearLayout>
 
 
