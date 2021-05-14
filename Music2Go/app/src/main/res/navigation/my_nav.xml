@@ -16,7 +16,7 @@
         tools:layout="@layout/fragment_search" 
         <action
             android:id="@+id/action_searchFragment_to_currentlyPlayingFragment"
-            app:destination="@id/currentlyPlayingFragment" />/>
+            app:destination="@id/currentlyPlayingFragment"/>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.music2go.SettingsFragment"
