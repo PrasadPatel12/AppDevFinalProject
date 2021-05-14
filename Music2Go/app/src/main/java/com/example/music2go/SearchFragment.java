@@ -89,6 +89,8 @@ public class SearchFragment extends Fragment {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.putString("currentMusic", String.valueOf(position));
                 editor.commit();
+
+                Navigation.findNavController(view).navigate(R.id.action_searchFragment_to_currentlyPlayingFragment);
             }
         });
 
