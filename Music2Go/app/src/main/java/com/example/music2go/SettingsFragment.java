@@ -38,7 +38,8 @@ import java.util.List;
 public class SettingsFragment extends Fragment {
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
-    List<ModelClass> userList = new ArrayList<>();;
+    List<ModelClass> userList = new ArrayList<>();
+    Button b5;
     Adapter adapter;
     private FirebaseAuth firebaseAuth;
     String s2 = "";
@@ -58,6 +59,14 @@ public class SettingsFragment extends Fragment {
 //        String s2 = sh.getString("name", "");
 //        String s3 = sh.getString("username", "");
         String s4 = sh.getString("email", "");
+        b5 = v.findViewById(R.id.button5);
+        b5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),GameFragment.class);
+                startActivity(intent);
+            }
+        });
 
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

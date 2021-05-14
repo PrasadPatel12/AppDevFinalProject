@@ -9,6 +9,18 @@
     tools:context=".SettingsFragment">
 
 
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="68dp"
+        android:text="Go to Game"
+        app:backgroundTint="@android:color/holo_green_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/imageView"
         android:layout_width="150dp"
@@ -67,7 +79,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="302dp"
+        android:layout_height="250dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

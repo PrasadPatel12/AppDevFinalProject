@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameFragment">
+    <TextView
+        android:id="@+id/playerOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentTop="true"
+        android:text="player one"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/playerOneScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/playerOne"
+        android:text="0"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/playerTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:text="player two"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/playerTwoScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="90dp"
+        android:layout_below="@+id/playerTwo"
+        android:text="0"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/playerStatus"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_below="@+id/playerOneScore"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_0"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:backgroundTint="#413F43"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/playerStatus"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:textStyle="bold"
+
+        />
+
+    <Button
+        android:id="@+id/btn_1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/playerStatus"
+        android:layout_toRightOf="@+id/btn_0"
+        android:backgroundTint="#413F43"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:backgroundTint="#413F43"
+        android:layout_above="@+id/btn_3"
+        android:layout_toRightOf="@id/btn_1"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="40dp"
+        android:backgroundTint="#413F43"
+        android:layout_below="@id/btn_0"
+        android:textColor="@color/white"
+
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:backgroundTint="#413F43"
+        android:layout_below="@id/btn_0"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/btn_3"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:backgroundTint="#413F43"
+        android:layout_below="@+id/btn_1"
+        android:layout_toRightOf="@id/btn_1"
+        android:textColor="@color/white"
+        android:layout_marginLeft="10dp"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="40dp"
+        android:backgroundTint="#413F43"
+        android:layout_below="@id/btn_3"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_7"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:backgroundTint="#413F43"
+        android:layout_below="@+id/btn_3"
+        android:layout_toRightOf="@id/btn_0"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_8"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/btn_4"
+        android:layout_toRightOf="@id/btn_1"
+        android:backgroundTint="#413F43"
+        android:textColor="@color/white"
+        android:layout_marginLeft="10dp"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/resetGame"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:backgroundTint="#E1470D"
+        android:text="Reset Game"
+        android:layout_below="@id/btn_8"
+        android:textColor="@color/white"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/GoHome"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/resetGame"
+        android:background="#4CAF50"
+        android:backgroundTint="#E1470D"
+        android:text="Go Home"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:backgroundTint="#4CAF50" />
+
+
+</RelativeLayout>

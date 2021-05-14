@@ -16,6 +16,7 @@
         tools:targetApi="m">
         <activity android:name=".register" />
         <activity android:name=".home" />
+        <activity android:name=".GameFragment" />
         <activity android:name=".login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
